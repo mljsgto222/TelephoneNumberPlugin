@@ -9,16 +9,12 @@ var TelephoneNumberError = function(code, message) {
 TelephoneNumber.NO_TELEPHONE_NUMBER = 0;
 
 TelephoneNumber.prototype.get = function(success, fail) {
-  exec(success, fail, 'TelephoneNumber', 'get', []);
+  cordova.exec(success, fail, 'TelephoneNumber', 'get', []);
 };
 
 //-------------------------------------------------------------------
-
-if (!window.plugins) {
-  window.plugins = {};
-}
-if (!window.plugins.telephoneNumber) {
-  window.plugins.telephoneNumber = new TelephoneNumber();
+if (!window.telephoneNumber) {
+  window.telephoneNumber = new TelephoneNumber();
 }
 
 if (module.exports) {
